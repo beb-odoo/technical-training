@@ -1,61 +1,56 @@
-# Odoo 12.0 - Technical Training
-=======
-# Widgets
+# Odoo 12.0 - Technical Training: Point of Sale
 
 ## Goals
 
-* interact with module system
-* understand widget lifecycle
-* be able to create new widgets
-* be able to perform various kind of RPCs
-* coordinate data fetching and rendering widgets
-* adding external libraries (lazyloading/or not)
-
+* load/store data from server
+* create new UI elements (buttons, popups,...)
+* modify QWeb templates
 
 ## Requirements
 
-* [Basic Views](https://github.com/odoo/technical-training/tree/12.0-03-views)
-* Basic knowledge of Javascript
+* [Widgets](https://github.com/odoo/technical-training/tree/12.0-15-widgets)
 
-## Problem 1: Fancy Library Dashboard
+## PoS frontend for library
 
-The library big boss just tried your Library application and he is not pleased.  He got a large amount of public funding to pay for the library application, but clearly, the work you did will not convince the auditors that the money was well spent.
+We want to create a completely new fronted for renting books. That's not the
+functionality for which the PoS was designed, so we start with some easy
+customizations on the frontend.
 
-Your task is to improve the current application with a nice looking dashboard.
+### Excercise 1: Filter displayed products & show interesting information
 
-This dashboard should be the main entry point of the library app (clicking on 'Library' should open the dashboard). The dashboard should have 3 sections (in no particular order)
+* Only show products that are non lost books
+* Display a mark or a text if the book is not available
 
-### Quick navigation
+#### Extra task 1
 
-We want a section with various buttons: one button 'Lost books' (open a list view with all rentals lost), one button 'Bad Customers' (open a list view with all customers which owes more than 10$, sorted)
+* When the book is already rented, disallow adding it to the basket
 
-### Statistical informations
+### Exercise 2: Show rentals information
 
-We also want another section with various numbers: total amount of money in and out this month, total number of books rented this month, total number of books lost this month
+* On client details screen, show a list of her rentals with the related information
+* Add a button to add a note on an order line, to allow to let users leave
+ remarks about book's state
 
-### A fancy pie chart
+#### Extra task 2
 
-Finally, everyone likes charts, so let us add a fancy pie chart with the number of books in stock/rented/lost state. (use a JS library not already in odoo)
+* Open a popup with some book's data when clicking on a book rental
 
-#### Extra tasks:
+### Exercise 3: Customize receipts
 
-- For maximal efficiency, the fancy pie chart JS library should be lazy loaded
-- clicking on a section of the fancy pie chart should open a list view of all books, with a filter on the corresponding state (so, lost/returned/rented/....)
-- add a control panel to your client action, and put the various buttons from the dashboard in the control panel
-- make sure your application can be translated...
-
+* Show the return date for the rental on receipts
 
 ## Resources
 
 ### References
 
-* [Chart.js](http://www.chartjs.org/)
-* Client actions (not really any documentation...)
-* [ControlPanelMixin](https://github.com/odoo/odoo/blob/962fa7325d6c9405890aa2d66385044099b0b1da/addons/web/static/src/js/chrome/control_panel.js#L15)
+* [Odoo's JavaScript Reference](https://www.odoo.com/documentation/12.0/reference/javascript_reference.html)
+* [QWeb's JavaScript Reference](https://www.odoo.com/documentation/12.0/reference/qweb.html#javascript)
 
 ### Code samples
 
-* [Registering a client action](https://github.com/odoo/odoo/blob/dbf8304e3a7b66a76854170fe1e166d56da72e1a/addons/web_settings_dashboard/static/src/js/dashboard.js#L344)
-* [Lazy loading](https://github.com/odoo/odoo/blob/f1a85ba70a2412fb0d7bf789a758d8f2d2e86a02/addons/website/static/src/js/backend/dashboard.js#L49)
-* [rpc on a model](https://github.com/odoo/odoo/blob/dbf8304e3a7b66a76854170fe1e166d56da72e1a/addons/website/static/src/js/menu/content.js#L194)
-* [rpc on a controller](https://github.com/odoo/odoo/blob/dbf8304e3a7b66a76854170fe1e166d56da72e1a/addons/web/static/src/js/chrome/user_menu.js#L62)
+* [Load extra fields](https://github.com/odoo/odoo/blob/12.0/addons/pos_mercury/static/src/js/pos_mercury.js#L16)
+* [Load extra models 1](https://github.com/odoo/odoo/blob/12.0/addons/point_of_sale/static/src/js/models.js#L1162)
+* [Load extra models 2](https://github.com/odoo/odoo/blob/12.0/addons/pos_restaurant/static/src/js/multiprint.js#L45)
+* [Override models](https://github.com/odoo/odoo/blob/12.0/addons/pos_restaurant/static/src/js/notes.js)
+* [New popup](https://github.com/odoo/odoo/blob/12.0/addons/point_of_sale/static/src/js/popups.js)
+* [New button](https://github.com/odoo/odoo/blob/12.0/addons/pos_discount/static/src/js/discount.js)
