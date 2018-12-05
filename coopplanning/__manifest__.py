@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Library Management",
+    'name': "Cooperative Management",
 
     'summary': """
-        Library management""",
+        Cooperative management""",
 
     'description': """
-        Manage a Library: customers, books, etc.... 
+        Manage a cooperative group 
     """,
 
     'author': "Odoo",
@@ -24,7 +24,8 @@
     # always loaded
     'data': [
         "security/ir.model.access.csv",
-        "data/library_data.xml",
+        "data/coop_data.xml",
+        "data/task_template.xml",
     ],
     # only loaded in demonstration mode
     'demo': [],
