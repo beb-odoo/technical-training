@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields
 
-
 class Partner(models.Model):
     _name = 'library.partner'
-    _description = 'Partner'
 
     name = fields.Char(string='Name')
     email = fields.Char(string='Email')
