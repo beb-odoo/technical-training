@@ -23,8 +23,8 @@
 
     # always loaded
     'data': [
+        "security/ir.model.access.csv",
         "data/library_data.xml",
-        "data/views.xml",
     ],
     # only loaded in demonstration mode
     'demo': [],
