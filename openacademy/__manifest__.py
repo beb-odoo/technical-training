@@ -3,13 +3,13 @@
     'name': "OpenAcademy",
 
     'summary': """
-        Openacademy""",
+        Manage trainings""",
 
     'description': """
-        Manage course, classes, teachers, students, ...
+        Manage course, classes(sessions), attendee registration, teachers, students, ...
     """,
 
-    'author': "Odoo",
+    'author': "beb-odoo",
     'website': "http://www.odoo.com",
 
     # Categories can be used to filter modules in modules listing
@@ -24,6 +24,8 @@
     # always loaded
     'data': [
         "data/openacademy_data.xml",
+        "views/openacademy.xml",
+	"views/partner.xml",
     ],
     # only loaded in demonstration mode
     'demo': [],
