@@ -2,7 +2,8 @@ from odoo import models, fields, api, exceptions
 
 class openacademy(models.Model):
     _name = 'openacademy.openacademy'
-
+    _description = 'OpenAcademy OpenAcademy'
+    
 class Course(models.Model):
     _name = 'openacademy.course'
     _description = 'OpenAcademy Courses'
