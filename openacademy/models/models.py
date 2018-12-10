@@ -63,7 +63,7 @@ class Session(models.Model):
     # A session has multiple attendees and each attendee might be scheduled for multiple sessions
     attendee_ids = fields.Many2many('res.partner', string="Attendees")
     # Demonstrate coumputed field with % of taken seats
-    taken_seats = fields.Float(string="Taken seats", compute='_taken_seats')
+    taken_seats = fields.Float(string="Taken seats", compute='_taken_seats', store=True)
     # Status of a session 
     state = fields.Selection([('draft', "Draft"), ('confirmed', "Confirmed"), ('done', "Done"),], default='draft')
 
@@ -77,6 +77,26 @@ class Session(models.Model):
                 r.taken_seats = 100.0 * len(r.attendee_ids) / r.seats
                                                             
 
+    # api constrains could also be used instead of onchange
+
+    """
+    from odoo.exceptions import ValidationError
+
+    @api.constrains('seats', 'attendee_ids')
+    def _check_taken_seats(self):
+        for session in self:
+            if session.taken_seats > 100:
+                raise ValidationError('The room has %s available seats and there is %s attendees registered' % (session.seats, len(session.attendee_ids)))
+    """
+
+
+    """
+    Or with SQL constraints ... if the value is stored in the DB; hence store=True
+    _sql_constraints = [
+        ('session_full', 'CHECK(taken_seats <= 100)', 'The room is full'),
+    ]
+    """
+    
     @api.onchange('seats', 'attendee_ids')
     def _verify_valid_seats(self):
         if self.seats < 0:
@@ -93,7 +113,7 @@ class Session(models.Model):
                     'message': "Increase seats or remove excess attendees",
                 },
             }
-        
+
 
     @api.constrains('instructor_id', 'attendee_ids')
     def _check_instructor_not_in_attendees(self):
