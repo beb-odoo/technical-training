@@ -12,8 +12,9 @@ class Course(models.Model):
     description = fields.Text()
     # create an index based on the responsible_id column
     # each course has only one responsible user but a user might be responsible for multiple course
-    responsible_id = fields.Many2one('res.users', ondelete='set null', string="Responsible", index=True)
+    responsible_id = fields.Many2one('res.partner', ondelete='set null', string="Responsible", index=True)
     session_ids = fields.One2many('openacademy.session', 'course_id', string="Sessions")
+    level = fields.Selection([('easy', 'Easy'), ('medium', 'Medium'), ('hard', 'Hard')], string="Difficulty Level")
 
     # with _sql_constraints of name uniqueness, we can't use the Form->Duplicate anymore
     # hence redefine the copy function to change the name automatically when duplicating
@@ -63,6 +64,15 @@ class Session(models.Model):
     attendee_ids = fields.Many2many('res.partner', string="Attendees")
     # Demonstrate coumputed field with % of taken seats
     taken_seats = fields.Float(string="Taken seats", compute='_taken_seats')
+
+
+    state = fields.Selection([
+                    ('draft', "Draft"),
+                    ('confirmed', "Confirmed"),
+                    ('done', "Done"),
+                    ], default='draft')
+
+
     # taken_seats is dependant of seats and attendee_ids
     @api.depends('seats', 'attendee_ids')
     def _taken_seats(self):
