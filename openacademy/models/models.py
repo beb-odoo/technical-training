@@ -12,7 +12,7 @@ class Course(models.Model):
     description = fields.Text()
     # create an index based on the responsible_id column
     # each course has only one responsible user but a user might be responsible for multiple course
-    responsible_id = fields.Many2one('res.partner', ondelete='set null', string="Responsible", index=True)
+    responsible_id = fields.Many2one('res.user', ondelete='set null', string="Responsible", index=True)
     session_ids = fields.One2many('openacademy.session', 'course_id', string="Sessions")
     level = fields.Selection([('easy', 'Easy'), ('medium', 'Medium'), ('hard', 'Hard')], string="Difficulty Level")
 
