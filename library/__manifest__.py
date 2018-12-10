@@ -24,6 +24,7 @@
     # always loaded
     'data': [
         "data/library_data.xml",
+        "data/views.xml",
     ],
     # only loaded in demonstration mode
     'demo': [],
