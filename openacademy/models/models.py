@@ -66,12 +66,7 @@ class Session(models.Model):
     taken_seats = fields.Float(string="Taken seats", compute='_taken_seats')
 
 
-    state = fields.Selection([
-                    ('draft', "Draft"),
-                    ('confirmed', "Confirmed"),
-                    ('done', "Done"),
-                    ], default='draft')
-
+#    state = fields.Selection([('draft', "Draft"), ('confirmed', "Confirmed"), ('done', "Done"),], default='draft')
 
     # taken_seats is dependant of seats and attendee_ids
     @api.depends('seats', 'attendee_ids')
