@@ -13,4 +13,4 @@ class books(models.Model):
     editiondate=fields.Date(string='Edition date')
     isbn=fields.Char(string='ISBN')
 
-    rentals=fields.One2many(comodel_name='library.rentals', relation='book_id', string='Rentals')
+    rentals=fields.One2many(comodel_name='library.rentals', inverse_name='book_id', string='Rentals')
