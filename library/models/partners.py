@@ -9,4 +9,4 @@ class Partner(models.Model):
     email=fields.Char(String="Email")
 
     type=fields.Selection([('customer','customer'), ('author','author')], default="customer")
-    rentals_id=fields.One2many(comodelname='library.rentals', inverse_name='customer_id', string='Rentals')
+    rentals_id=fields.One2many(comodel_name='library.rentals', inverse_name='customer_id', string='Rentals')
