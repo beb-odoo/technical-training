@@ -9,7 +9,7 @@
         Manage a Library: customers, books, etc.... 
     """,
 
-    'author': "Odoo",
+    'author': "beb-odoo",
     'website': "http://www.odoo.com",
 
     # Categories can be used to filter modules in modules listing
