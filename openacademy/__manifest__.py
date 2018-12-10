@@ -27,6 +27,8 @@
         "data/openacademy_data.xml",
         "views/openacademy.xml",
 	"views/partner.xml",
+
+
     ],
     # only loaded in demonstration mode
     'demo': [],
