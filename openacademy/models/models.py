@@ -14,7 +14,7 @@ class Course(models.Model):
     # each course has only one responsible user but a user might be responsible for multiple course
     responsible_id = fields.Many2one('res.users', ondelete='set null', string="Responsible", index=True)
     session_ids = fields.One2many('openacademy.session', 'course_id', string="Sessions")
-    # level = fields.Selection([('easy', 'Easy'), ('medium', 'Medium'), ('hard', 'Hard')], string="Difficulty Level")
+    level = fields.Selection([('easy', 'Easy'), ('medium', 'Medium'), ('hard', 'Hard')], string="Difficulty Level")
 
     # with _sql_constraints of name uniqueness, we can't use the Form->Duplicate anymore
     # hence redefine the copy function to change the name automatically when duplicating
