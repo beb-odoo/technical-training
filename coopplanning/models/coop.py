@@ -10,9 +10,9 @@ class task_desc(models.Model):
     active = fields.Boolean(default=True)
 
 
-class volunteers(models.Model):
-    _name='coop.volunteers'
-    name = fields.Char(string='Volunteer Name', required=True)
+#class volunteers(models.Model):
+#    _name='coop.volunteers'
+#    name = fields.Char(string='Volunteer Name', required=True)
 
 
 class task_day(models.Model):
@@ -27,7 +27,7 @@ class task_template(models.Model):
 
     name = fields.Char(string='Job', required=True)
     workers_nb = fields.Integer(string='Number of workers', help="Max number of worker for this task", default=1)
-    workers_id = fields.Many2many(comodel_name='res.partners', string='workers list')
+    workers_id = fields.Many2many('res.partners', string='workers list')
     day_id = fields.Many2one(comodel_name='coop.task.day', string='day id')
     task_type = fields.Many2one(comodel_name='coop.task.desc', string='task type')
     duration = fields.Float(string='Duration', help='Duration in Hour')
