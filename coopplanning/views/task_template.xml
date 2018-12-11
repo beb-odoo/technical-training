@@ -41,10 +41,9 @@
                             <!-- Solutions -->
                             <field name="start_time" widget="float_time" />
                             <field name="duration" widget="float_time" />
-                            <field name="floating" />
                         </group>
                     </group>
-                    <group attrs="{'invisible' : [('floating', '=', True)]}">
+                    <group>
                         <separator string="Pre defined Worker" colspan="2" />
                         <field name="workers_id" options="{'no_create': True}" nolabel="1" colspan="2">
                             <tree>
