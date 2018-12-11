@@ -65,7 +65,6 @@
         <field name="model">coop.task.template</field>
         <field name="arch" type="xml">
             <search>
-                <field name="number" />
                 <field name="task_area" />
                 <field name="workers_id" />
                 <field name="task_type" />
