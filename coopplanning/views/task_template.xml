@@ -11,7 +11,7 @@
                 <field name="start_time" widget="float_time" />
                 <field name="end_time" widget="float_time" />
                 <field name="duration" widget="float_time" />
-                <field name="worker_nb" />
+                <field name="workers_nb" />
             </tree>
         </field>
     </record>
@@ -35,7 +35,7 @@
                             <!-- Solutions -->
                             <field name="task_type_id"  options="{'no_create': True}" required="True" />
                             <field name="day_nb_id" options="{'no_create': True, 'no_open' : True}" required="True"/>
-                            <field name="worker_nb" />
+                            <field name="workers_nb" />
                             <field name="active" />
                         </group>
                         <group>
@@ -48,7 +48,7 @@
                     </group>
                     <group attrs="{'invisible' : [('floating', '=', True)]}">
                         <separator string="Pre defined Worker" colspan="2" />
-                        <field name="worker_ids" options="{'no_create': True}" nolabel="1" colspan="2">
+                        <field name="workers_id" options="{'no_create': True}" nolabel="1" colspan="2">
                             <tree>
                                 <field name="name" />
                                 <field name="email" />
@@ -70,7 +70,7 @@
             <search>
                 <field name="day_nb" />
                 <field name="task_area" />
-                <field name="worker_ids" />
+                <field name="workers_id" />
                 <field name="task_type_id" />
                 <field name="day_nb_id" />
                 <filter name="inactive" string="Inactive" domain="[('active', '=', False)]" />
