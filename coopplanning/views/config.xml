@@ -4,13 +4,13 @@
     <!-- Actions -->
     <record model="ir.actions.act_window" id="action_daynumber">
           <field name="name">Day Number</field>
-          <field name="res_model">coop.number</field>
+          <field name="res_model">coop.task.day</field>
           <field name="view_mode">tree,form</field>
 
     </record>
     <record model="ir.actions.act_window" id="action_task_type">
       <field name="name">Task Type</field>
-      <field name="res_model">coop.task_type</field>
+      <field name="res_model">coop.task.desc</field>
       <field name="view_mode">tree,form</field>
     </record>
 
