@@ -3,10 +3,10 @@
         <field name="name">Task Template List</field>
         <field name="model">coop.task.template</field>
         <field name="arch" type="xml">
-            <tree default_order="day_nb_id, start_time">
+            <tree default_order="day_id, start_time">
                 <field name="task_type" />
                 <field name="name" />
-                <field name="day_nb_id" />
+                <field name="day_id" />
                 <!-- Solution -->
                 <field name="start_time" widget="float_time" />
                 <field name="end_time" widget="float_time" />
@@ -34,7 +34,7 @@
                         <group>
                             <!-- Solutions -->
                             <field name="task_type"  options="{'no_create': True}" required="True" />
-                            <field name="day_nb_id" options="{'no_create': True, 'no_open' : True}" required="True"/>
+                            <field name="day_id" options="{'no_create': True, 'no_open' : True}" required="True"/>
                             <field name="workers_nb" />
                             <field name="active" />
                         </group>
@@ -72,7 +72,7 @@
                 <field name="task_area" />
                 <field name="workers_id" />
                 <field name="task_type" />
-                <field name="day_nb_id" />
+                <field name="day_id" />
                 <filter name="inactive" string="Inactive" domain="[('active', '=', False)]" />
                 <!-- Extra Ex02 -->
                 <filter name="all" string="All" domain="['|', ('active', '=', False), ('active', '=', True)]" />
