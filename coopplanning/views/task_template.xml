@@ -9,7 +9,6 @@
                 <field name="day_id" />
                 <!-- Solution -->
                 <field name="start_time" widget="float_time" />
-                <field name="end_time" widget="float_time" />
                 <field name="duration" widget="float_time" />
                 <field name="workers_nb" />
             </tree>
@@ -41,7 +40,6 @@
                         <group>
                             <!-- Solutions -->
                             <field name="start_time" widget="float_time" />
-                            <field name="end_time" widget="float_time" />
                             <field name="duration" widget="float_time" />
                             <field name="floating" />
                         </group>
